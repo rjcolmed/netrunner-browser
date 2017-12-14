@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import FilterableCardsList from './FilterableCardsList';
 import logo from './logo.svg';
 import './App.css';
+import CardShow from './CardShow';
 
 class App extends Component {
   render() {
@@ -12,7 +13,14 @@ class App extends Component {
           <img src={ logo } className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Netrunner Decks</h1>
         </header>
-      <FilterableCardsList />
+      <Router>
+        <div>
+          <Switch>
+            <Route exact path="/cards" component={ FilterableCardsList } />
+            <Route exact path="/cards/:code" component={ CardShow } />
+          </Switch>
+        </div>
+      </Router>
       </div>
     );
   }
