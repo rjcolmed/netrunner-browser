@@ -1,8 +1,9 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
+import netrunnerDbReducer from './reducers/netrunnerdb_reducer';
 
 const reducers = combineReducers({
-
+  cards: netrunnerDbReducer
 });
 
 const middleWare = [thunk];
