@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 
-const NETRUNNER_DB_API = "https://netrunnerdb.com/api/";
+const NETRUNNER_DB_API = "https://netrunnerdb.com/api/2.0/public";
 
 export const getAllCards = () => {
   return dispatch => {
