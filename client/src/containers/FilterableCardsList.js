@@ -1,15 +1,12 @@
 import React from 'react';
+import SearchBar from '../components/SearchBar';
 
 class FilterableCardsList extends React.Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
       <div>
         <h1>Filterable Cards List</h1>
-        {/* SearchBar */}
+        <SearchBar />
         {/* CardsList */}
       </div>
     )
