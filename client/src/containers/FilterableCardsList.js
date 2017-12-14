@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/netrunnerdb_actions.js';
 import { bindActionCreators } from 'redux';
-import SearchBar from '../components/SearchBar';
+import SearchBar from '../components/filters/SearchBar';
 import CardsList from '../components/CardsList';
 
 class FilterableCardsList extends React.Component {
