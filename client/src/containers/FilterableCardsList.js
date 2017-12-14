@@ -9,7 +9,7 @@ class FilterableCardsList extends React.Component {
 
   componentDidMount() {
     if (this.props.cards.length === 0) {
-      this.props.actions.getAllCards();
+      // this.props.actions.getAllCards();
       console.log('fetched cards from netrunnerDb');
     } else {
       console.log('didn\'t need to fetch');
