@@ -10,24 +10,32 @@ class FilterableCardsList extends React.Component {
     super();
 
     this.state = {
-      filterText: ''
+      filterText: '',
+      currentlyDisplayed: []
     }
   }
 
   handleOnChange = (event) => {
-    const inputText = event.target.value
+    let filteredCards = this.props.cards.filter(card => {
+      return card.title.toLowerCase().includes(event.target.value.toLowerCase())
+    });
     this.setState({
-      filterText: inputText
+      filterText: event.target.value,
+      currentlyDisplayed: filteredCards
     });
   }
 
   componentDidMount() {
     if (this.props.cards.length === 0) {
-      // this.props.actions.getAllCards();
+      this.props.actions.getAllCards();
       console.log('fetched cards from netrunnerDb');
     } else {
       console.log('didn\'t need to fetch');
     }
+
+    this.setState({
+      currentlyDisplayed: this.props.cards
+    });
   }
 
   render() {
@@ -38,7 +46,7 @@ class FilterableCardsList extends React.Component {
           filterText={ this.state.filterText }
           handleOnChange={ this.handleOnChange }
         />
-        <CardsList cards={ this.props.cards } />
+        <CardsList cards={ this.state.currentlyDisplayed } />
       </div>
     )
   }
