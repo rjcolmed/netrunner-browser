@@ -6,6 +6,20 @@ import SearchBar from '../components/SearchBar';
 import CardsList from '../components/CardsList';
 
 class FilterableCardsList extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      filterText: ''
+    }
+  }
+
+  handleOnChange = (event) => {
+    const inputText = event.target.value
+    this.setState({
+      filterText: inputText
+    });
+  }
 
   componentDidMount() {
     if (this.props.cards.length === 0) {
@@ -20,7 +34,10 @@ class FilterableCardsList extends React.Component {
     return (
       <div>
         <h1>Filterable Cards List</h1>
-        <SearchBar />
+        <SearchBar 
+          filterText={ this.state.filterText }
+          handleOnChange={ this.handleOnChange }
+        />
         <CardsList cards={ this.props.cards } />
       </div>
     )
