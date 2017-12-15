@@ -4,6 +4,7 @@ import FilterableCardsList from './FilterableCardsList';
 import logo from './logo.svg';
 import './App.css';
 import CardShow from './CardShow';
+import NavBar from '../components/NavBar';
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
         </header>
       <Router>
         <div>
+        <NavBar />
           <Switch>
             <Route exact path="/cards" component={ FilterableCardsList } />
             <Route exact path="/cards/favorites" component={ FilterableCardsList } />
