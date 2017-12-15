@@ -17,6 +17,7 @@ class App extends Component {
         <div>
           <Switch>
             <Route exact path="/cards" component={ FilterableCardsList } />
+            <Route exact path="/cards/favorites" component={ FilterableCardsList } />
             <Route exact path="/cards/:code" component={ CardShow } />
           </Switch>
         </div>
