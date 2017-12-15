@@ -1,5 +1,6 @@
 import React from 'react';
 import CardsListItem from './CardsListItem';
+import { List } from 'semantic-ui-react'
 
 const CardsList = props => {
   function renderList() {
@@ -10,10 +11,10 @@ const CardsList = props => {
   }
 
   return (
-    <div>
+    <List>
       <h3>Inside the CardsList</h3>
       {renderList()}
-    </div>  
+    </List>  
   )
 }
  
