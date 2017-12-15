@@ -1,13 +1,24 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
+ 
 class CardShow extends React.Component {
   render() {
     return (
       <div>
-        Card Show Page
+        <h1>{this.props.card.title}</h1>
       </div>
     )
   }
 }
 
-export default CardShow;
+const mapStateToProps = (state, ownProps) => {
+  const card = state.store.cards.find(card => card.code === ownProps.match.params.code);
+
+  if(card) {
+    return { card }
+  } else {
+    return { card: {} }
+  }
+}
+
+export default connect(mapStateToProps)(CardShow);
