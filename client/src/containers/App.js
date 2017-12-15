@@ -16,7 +16,7 @@ class App extends Component {
         </header>
       <Router>
         <div>
-        <NavBar />
+          <NavBar />  
           <Switch>
             <Route exact path="/cards" component={ FilterableCardsList } />
             <Route exact path="/cards/favorites" component={ FilterableCardsList } />

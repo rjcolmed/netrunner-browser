@@ -9,13 +9,13 @@ const NavBar = props => {
           exact to="/cards"
           >Home
         </NavLink>
-       </li>
-         <li>
-           <NavLink
-             exact to="/cards/favorites"
-             >Favorites
-           </NavLink>
-        </li>
+      </li>
+      <li>
+        <NavLink
+          exact to="/cards/favorites"
+          >Favorites
+        </NavLink>
+      </li>
      </ul>
     );
   }
