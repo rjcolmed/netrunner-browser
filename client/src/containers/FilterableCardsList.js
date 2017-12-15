@@ -19,19 +19,16 @@ class FilterableCardsList extends React.Component {
     let filteredCards = this.props.cards.filter(card => {
       return card.title.toLowerCase().includes(event.target.value.toLowerCase())
     });
+
     this.setState({
       filterText: event.target.value,
       currentlyDisplayed: filteredCards
     });
   }
 
-  componentDidMount() {
-    if (this.props.cards.length === 0) {
-      this.props.actions.getAllCards();
-      console.log('fetched cards from netrunnerDb');
-    } else {
-      console.log('didn\'t need to fetch');
-    }
+  handleOnClick = (event) => {
+    event.preventDefault();
+    this.props.actions.getAllCards();
 
     this.setState({
       currentlyDisplayed: this.props.cards
@@ -46,6 +43,7 @@ class FilterableCardsList extends React.Component {
           filterText={ this.state.filterText }
           handleOnChange={ this.handleOnChange }
         />
+        <button onClick={this.handleOnClick}>Get Cards From NetrunnerDB</button>
         <CardsList cards={ this.state.currentlyDisplayed } />
       </div>
     )
