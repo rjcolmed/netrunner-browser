@@ -6,7 +6,6 @@ export const addUser = (user) => {
 }
 
 export const createUser = (user) => {
-  console.log(user);
   return dispatch => {
     dispatch({ type: 'CREATING_USER' });
     return fetch('/users', {
