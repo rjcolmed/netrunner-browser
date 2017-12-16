@@ -15,6 +15,10 @@ class FilterableCardsList extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.props.actions.getAllCards();
+  }
+
   handleOnChange = (event) => {
     let filteredCards = this.props.cards.filter(card => {
       return card.title.toLowerCase().includes(event.target.value.toLowerCase())
@@ -28,11 +32,7 @@ class FilterableCardsList extends React.Component {
 
   handleOnClick = (event) => {
     event.preventDefault();
-    this.props.actions.getAllCards();
-
-    this.setState({
-      currentlyDisplayed: this.props.cards
-    });
+    this.props.actions.fetchAllFromNetrunnerDb();
   }
 
   render() {
