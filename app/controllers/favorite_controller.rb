@@ -1,4 +1,4 @@
-class FavoritesController < ApplicationController
+class FavoriteController < ApplicationController
   def index
     # here we run set_user and then do something like 
     # @user.favorites, then render json: @favorites
