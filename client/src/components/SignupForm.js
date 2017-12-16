@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import TextInput from './TextInput';
 
 class SignupForm extends React.Component {
@@ -6,12 +8,13 @@ class SignupForm extends React.Component {
     super();
 
     this.state = {
-      input: {
+      user: {
         username: '',
         email: '',
         password: '',
         password_confirmation: ''
       }
+
     }
   }
 
@@ -19,6 +22,12 @@ class SignupForm extends React.Component {
     this.setState({
       [event.target.name]: event.target.value
     });
+  }
+
+  handleOnSubmit = (event) => {
+    event.preventDefault();
+    //need to have a user object to pass to whatever action i come up with
+    // this.props.action.createUser(user)
   }
 
   render() {
