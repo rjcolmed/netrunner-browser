@@ -44,12 +44,6 @@ class SignupForm extends React.Component {
           placeholder='password confirmation' 
           handleOnChange={this.handleOnChange} 
         />
-        <div>
-          {this.state.username}
-          {this.state.password}
-          {this.state.password_confirmation}
-          {this.state.email}
-        </div>
         <button>Submit</button>
       </form>
     )
