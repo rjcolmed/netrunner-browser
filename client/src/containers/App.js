@@ -5,6 +5,7 @@ import logo from './logo.svg';
 import './App.css';
 import CardShow from './CardShow';
 import NavBar from '../components/NavBar';
+import SignupForm from '../components/SignupForm';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
             <Route exact path="/cards" component={ FilterableCardsList } />
             <Route exact path="/cards/favorites" component={ FilterableCardsList } />
             <Route exact path="/cards/:code" component={ CardShow } />
+            <Route exact path="/signup" component={ SignupForm } />
           </Switch>
         </div>
       </Router>
