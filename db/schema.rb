@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171215150212) do
+ActiveRecord::Schema.define(version: 20171216012426) do
 
   create_table "cards", force: :cascade do |t|
     t.string "code"
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 20171215150212) do
     t.string "keywords"
     t.string "flavor"
     t.string "pack_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites_lists", force: :cascade do |t|
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

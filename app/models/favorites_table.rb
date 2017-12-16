@@ -1,0 +1,3 @@
+class FavoritesList < ApplicationRecord
+
+end
