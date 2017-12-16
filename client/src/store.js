@@ -1,15 +1,17 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import netrunnerDbReducer from './reducers/netrunnerdb_reducer';
+import cardsReducer from './reducers/cards_reducer';
+import favoritesReducer from './reducers/favorites_reducer';
 
-const reducers = combineReducers({
-  store: netrunnerDbReducer
+const rootReducer = combineReducers({
+  cards: cardsReducer,
+  favorites: favoritesReducer
 });
 
 const middleWare = [thunk];
 
 export default createStore(
-  reducers,
+  rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   applyMiddleware(...middleWare)
 )

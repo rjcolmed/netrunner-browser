@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions/netrunnerdb_actions.js';
+import * as actions from '../actions/cards_actions.js';
 import { bindActionCreators } from 'redux';
 import SearchBar from '../components/filters/SearchBar';
 import CardsList from '../components/CardsList';
@@ -52,7 +52,7 @@ class FilterableCardsList extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    cards: state.store.cards
+    cards: state.cards
   }
 }
 
