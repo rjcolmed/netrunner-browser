@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     if user.save
       render json: user
     else
-      render json: { message: book.errors }, status: 400
+      render json: { message: user.errors }, status: 400
     end
   end
 
