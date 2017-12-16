@@ -16,6 +16,9 @@ export const createUser = (user) => {
         'Accept': 'application/json'
       },
       body: JSON.stringify({ user })
-    });
+    })
+    .then(response => response.json())
+    .then(user => dispatch(addUser(user)))
+    .catch(err => console.log(err));
   }
 }
