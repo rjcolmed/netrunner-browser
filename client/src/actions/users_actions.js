@@ -1,13 +1,15 @@
+import * as types from './action_types'
+
 export const addUser = (user) => {
   return {
-    type: 'ADD_USER',
+    type: types.ADD_USER,
     user
   }
 }
 
 export const createUser = (user) => {
   return dispatch => {
-    dispatch({ type: 'CREATING_USER' });
+    dispatch({ type: types.CREATING_USER });
     return fetch('/users', {
       method: 'post',
       headers: {
@@ -24,7 +26,7 @@ export const createUser = (user) => {
 
 export const loginUser = (user) => {
   return dispatch => {
-    dispatch({ type: 'LOGGING_USER_IN' });
+    dispatch({ type: types.LOGGING_USER_IN });
     return fetch('/sessions', {
       method: 'post',
       headers: {

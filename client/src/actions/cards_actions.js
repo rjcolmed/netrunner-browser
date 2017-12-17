@@ -1,20 +1,21 @@
 import fetch from 'isomorphic-fetch';
+import * as types from './action_types'
 
 const NETRUNNER_DB_API = "https://netrunnerdb.com/api/2.0/public";
 
 export const getAllCards = () => {
   return dispatch => {
-    dispatch({ type: 'LOADING_CARDS' })
+    dispatch({ type: types.LOADING_CARDS })
     return fetch('/cards')
       .then(response => response.json())
-      .then(cards => dispatch({ type: 'GET_ALL_CARDS', cards }))
+      .then(cards => dispatch({ type: types.GET_ALL_CARDS, cards }))
       .catch(err => console.log(err))
   }
 }
 
 export const fetchAllFromNetrunnerDb = () => {
   return dispatch => {
-    dispatch({ type: 'FETCHING_ALL_CARDS' })
+    dispatch({ type: types.FETCHING_ALL_CARDS })
     return fetch(`${NETRUNNER_DB_API}/cards`)
               .then(response => response.json())
               .then(cards => {
