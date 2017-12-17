@@ -33,6 +33,7 @@ class SignupForm extends React.Component {
   }
 
   render() {
+    
     return (
       <form onSubmit={ this.handleOnSubmit }>
         <TextInput 
