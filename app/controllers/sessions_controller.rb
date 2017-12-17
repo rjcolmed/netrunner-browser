@@ -3,9 +3,11 @@ class SessionsController < ApplicationController
     user = User.find_by(username: sessions_params[:username])
 
     if user && user.authenticate(sessions_params[:password])
-      render json: user
+      jwt = Auth.issue({  user: user.id })
+
+      render json: { jwt: jwt }
     else
-      # render json: { message: user.errors }, status: 400
+      render json: { message: user.errors }, status: 400
     end
   end
 
