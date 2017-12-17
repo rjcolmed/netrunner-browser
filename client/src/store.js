@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import cardsReducer from './reducers/cards_reducer';
 import favoritesReducer from './reducers/favorites_reducer';
 import usersReducer from './reducers/users_reducer';
+import sessionReducer from './reducers/session_reducer';
 
 const rootReducer = combineReducers({
   cards: cardsReducer,
   favorites: favoritesReducer,
-  user: usersReducer
+  user: usersReducer,
+  session: sessionReducer
 });
 
 const middleWare = [thunk];
