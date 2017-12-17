@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { loginUser } from '../actions/users_actions'
+import * as sessionActions from '../actions/session_actions';
 import TextInput from './TextInput';
 
-class SignupForm extends React.Component {
+class LoginForm extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      user: {
+      credentials: {
         username: '',
         password: ''
       }
@@ -18,8 +18,8 @@ class SignupForm extends React.Component {
 
   handleOnChange = (event) => {
     this.setState({
-      user: {
-        ...this.state.user,
+      credentials: {
+        ...this.state.credentials,
         [event.target.name]: event.target.value
       }
     });
@@ -27,7 +27,7 @@ class SignupForm extends React.Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.loginUser(this.state.user);
+    this.props.sessionActions.logInUser(this.state.credentials)
   }
 
   render() {
@@ -37,13 +37,13 @@ class SignupForm extends React.Component {
           name='username' 
           placeholder='username' 
           handleOnChange={this.handleOnChange}
-          value={ this.state.user.username }
+          value={ this.state.credentials.username }
         />
         <TextInput 
           name='password' 
           placeholder='password' 
           handleOnChange={this.handleOnChange}
-          value={ this.state.user.password }
+          value={ this.state.credentials.password }
         />
         <button type='submit'>Submit</button>
       </form>
@@ -53,8 +53,8 @@ class SignupForm extends React.Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    loginUser: bindActionCreators(loginUser, dispatch)
+    sessionActions: bindActionCreators(sessionActions, dispatch)
   }
 }
 
-export default connect(null, mapDispatchToProps)(SignupForm);
+export default connect(null, mapDispatchToProps)(LoginForm);
