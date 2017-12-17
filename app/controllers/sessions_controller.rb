@@ -1,9 +1,11 @@
 class SessionsController < ApplicationController
+  before_action :authenticate, except: %i[create]
+
   def create
     user = User.find_by(username: sessions_params[:username])
 
     if user && user.authenticate(sessions_params[:password])
-      jwt = Auth.issue({  user: user.id })
+      jwt = Auth.issue({ user: user.id })
 
       render json: { jwt: jwt }
     else
