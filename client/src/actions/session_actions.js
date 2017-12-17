@@ -6,7 +6,6 @@ export const loginSuccess = () => {
     type: types.LOG_IN_SUCCESS 
   }
 }
-  
 
 export const logInUser = (credentials) => {
   return dispatch => {
