@@ -11,3 +11,7 @@ export const ADD_USER = 'ADD_USER';
 export const CREATING_USER = 'CREATING_USER';
 
 export const LOGGING_USER_IN = 'LOGGING_USER_IN';
+
+export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
+
+export const GET_FAVORITES = 'GET_FAVORITES';
