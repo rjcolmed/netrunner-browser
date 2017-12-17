@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {  bindActionCreators } from 'redux';
-import * as actions from '../actions/favorites_actions'
+import * as favoritesActions from '../actions/favorites_actions'
 
 class CardShow extends React.Component {
   handleOnClick = event => {
     event.preventDefault();
 
-    this.props.actions.addToFavorites(this.props.card);
+    this.props.favoritesActions.addToFavorites(this.props.card);
 
   }
 
@@ -33,7 +33,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return  {
-    actions: bindActionCreators(actions, dispatch)
+    favoritesActions: bindActionCreators(favoritesActions, dispatch)
   }  
 }
  
