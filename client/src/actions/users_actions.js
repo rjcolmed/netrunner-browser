@@ -21,3 +21,20 @@ export const createUser = (user) => {
     .catch(err => console.log(err));
   }
 }
+
+export const loginUser = (user) => {
+  return dispatch => {
+    dispatch({ type: 'LOGGING_USER_IN' });
+    return fetch('/sessions', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({ user })
+    })
+    .then(response => response.json())
+    .then(user => dispatch(addUser(user)))
+    .catch(err => console.log(err));
+  }
+}
