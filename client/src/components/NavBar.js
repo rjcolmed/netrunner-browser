@@ -3,8 +3,9 @@ import {connect} from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/session_actions';
+import * as cardActions from '../actions/cards_actions.js';
 import { Redirect } from 'react-router';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Icon, Button } from 'semantic-ui-react';
 
 class NavBar extends React.Component {
   constructor() {
@@ -20,6 +21,12 @@ class NavBar extends React.Component {
 
     this.props.actions.logOutUser()
     this.setState({ redirect: true });
+  }
+
+  fetchCardsFromNetrunnerDb =  (event) => {
+    event.preventDefault();
+
+    this.props.cardActions.fetchAllFromNetrunnerDb();
   }
 
   render() {
@@ -56,7 +63,13 @@ class NavBar extends React.Component {
               exact to="/cards/favorites"
               >Favorites
             </NavLink>
-            </Menu.Item>
+          </Menu.Item>
+          <Menu.Item>
+            <Button icon
+              onClick={ this.fetchCardsFromNetrunnerDb }
+              ><Icon name="cloud download" />
+            </Button>
+          </Menu.Item>
          </Menu>
         );
     } else {
@@ -94,7 +107,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    actions: bindActionCreators(actions, dispatch)
+    actions: bindActionCreators(actions, dispatch),
+    cardActions: bindActionCreators(cardActions, dispatch)
   }
 }
 
