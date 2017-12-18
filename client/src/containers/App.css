@@ -20,3 +20,12 @@ div .ui.card {
   margin: auto;
 }
 
+.ui.form {
+  margin:150px auto;
+  width: 50%;
+}
+
+.ui.fluid.button {
+  margin-top: 20px;
+}
+
