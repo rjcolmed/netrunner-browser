@@ -1,6 +1,6 @@
 import React from 'react';
 import CardsListItem from './CardsListItem';
-import { List, Segment } from 'semantic-ui-react'
+import { Segment } from 'semantic-ui-react'
 
 const CardsList = props => {
   function renderList() {
