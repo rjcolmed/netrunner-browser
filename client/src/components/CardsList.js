@@ -1,19 +1,21 @@
 import React from 'react';
 import CardsListItem from './CardsListItem';
-import { List } from 'semantic-ui-react'
+import { List, Segment } from 'semantic-ui-react'
 
 const CardsList = props => {
   function renderList() {
     const cards = props.cards.map((card, index) => 
+    <Segment>
       <CardsListItem card={ card } key={ index } />
+    </Segment>
     ) 
     return cards;
   }
 
   return (
-    <List>
+    <Segment.Group>
       { renderList() }
-    </List>  
+    </Segment.Group>
   )
 }
  
