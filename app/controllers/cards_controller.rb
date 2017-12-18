@@ -17,4 +17,15 @@ class CardsController < ApplicationController
       )
     end
   end
+
+  def destroy
+    @card = Card.find_by(code: params[:code])
+
+    favorite = @card.favorites.detect { |favorite| favorite.card == @card }
+
+    favorite.destroy
+
+    render json: { message: "favorite removed", success: 'ok' }
+  end
+
 end
