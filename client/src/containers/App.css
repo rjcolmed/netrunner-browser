@@ -1,0 +1,22 @@
+img.ui.image {
+  z-index: auto;
+}
+.ui.container.landing-page {
+  margin: 100px auto;
+  width: 50%;
+  text-align: center;
+}
+
+.ui.segment.filterable-cards-list {
+  margin: auto;
+  width: 500px;
+}
+
+.ui.icon.input {
+  width: 100%;
+}
+
+div .ui.card {
+  margin: auto;
+}
+
