@@ -4,11 +4,10 @@ import {  bindActionCreators } from 'redux';
 import * as favoritesActions from '../actions/favorites_actions'
 
 class CardShow extends React.Component {
+
   handleOnClick = event => {
     event.preventDefault();
-
     this.props.favoritesActions.addToFavorites(this.props.card);
-
   }
 
   render() {
