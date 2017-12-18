@@ -12,8 +12,7 @@ const CardsList = props => {
 
   return (
     <List>
-      <h3>Inside the CardsList</h3>
-      {renderList()}
+      { renderList() }
     </List>  
   )
 }
