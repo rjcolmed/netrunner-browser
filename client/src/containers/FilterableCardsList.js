@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/cards_actions.js';
 import { bindActionCreators } from 'redux';
-import SearchBar from '../components/filters/SearchBar';
+// import SearchBar from '../components/filters/SearchBar';
 import CardsList from '../components/CardsList';
 import { Search, Segment } from 'semantic-ui-react';
 
@@ -48,8 +48,8 @@ class FilterableCardsList extends React.Component {
           /> */}
           <Search
             onSearchChange={ this.handleOnChange }
-            filterText={ this.state.filterText }
-            showNoResults={false}
+            // filterText={ this.state.filterText }
+            showNoResults={false }
           />
         </Segment>
         <CardsList 
