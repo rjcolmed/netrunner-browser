@@ -1,7 +1,9 @@
+import * as types from '../actions/action_types';
+
 export default function favoritesReducer(state = [], action) {
   switch ( action.type ) {
-    case 'ADD_TO_FAVORITES':
-      return state.concat(action.card)
+    case types.SET_FAVORITES:
+      return action.favorites
     default:
       return state;
   }

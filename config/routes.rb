@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :cards, only: %i[index create]
+  resources :cards, only: %i[index create destroy]
 
-  resources :lists, only: %i[show create update]
+  resources :favorites, only: %i[index create]
 
   resources :users, only: %i[create]
 
-  resources :sessions, only: %i[create destroy]
+  post '/login', to: "sessions#create"
 end

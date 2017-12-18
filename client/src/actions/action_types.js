@@ -1,0 +1,21 @@
+export const LOG_IN_SUCCESS = 'LOG_IN_SUCCESS';
+
+export const LOADING_CARDS = 'LOADING_CARDS';
+
+export const GET_ALL_CARDS = 'GET_ALL_CARDS';
+
+export const FETCHING_ALL_CARDS = 'FETCHING_ALL_CARDS';
+
+export const ADD_USER = 'ADD_USER';
+
+export const CREATING_USER = 'CREATING_USER';
+
+export const LOGGING_USER_IN = 'LOGGING_USER_IN';
+
+export const GET_FAVORITES = 'GET_FAVORITES';
+
+export const SET_FAVORITES = 'SET_FAVORITES';
+
+export const LOG_OUT = 'LOG_OUT';
+
+export const CREATE_USER_SUCCESS = 'CREATE_USER_SUCCESS';

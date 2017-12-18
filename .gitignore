@@ -18,4 +18,8 @@
 !/tmp/.keep
 
 .byebug_history
+<<<<<<< HEAD
 .env
+=======
+.env
+>>>>>>> jwt-auth

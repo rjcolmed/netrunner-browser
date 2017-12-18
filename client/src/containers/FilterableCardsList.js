@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/cards_actions.js';
 import { bindActionCreators } from 'redux';
-import SearchBar from '../components/filters/SearchBar';
+// import SearchBar from '../components/filters/SearchBar';
 import CardsList from '../components/CardsList';
+import { Search, Segment, Container, Header } from 'semantic-ui-react';
 
 class FilterableCardsList extends React.Component {
   constructor() {
@@ -30,29 +31,36 @@ class FilterableCardsList extends React.Component {
     });
   }
 
-  handleOnClick = (event) => {
-    event.preventDefault();
-    this.props.actions.fetchAllFromNetrunnerDb();
-  }
-
   render() {
     return (
-      <div>
-        <h1>Filterable Cards List</h1>
-        <SearchBar 
-          filterText={ this.state.filterText }
-          handleOnChange={ this.handleOnChange }
-        />
-        <button onClick={this.handleOnClick}>Get Cards From NetrunnerDB</button>
-        <CardsList cards={ this.state.currentlyDisplayed } />
-      </div>
+      <Container>
+        <Segment className="filterable-cards-list">
+        <Header size="huge" textAlign="center">Browse Cards</Header>
+          <div>
+            {/* <SearchBar 
+              filterText={ this.state.filterText }
+              handleOnChange={ this.handleOnChange }
+            /> */}
+            <Search
+              onSearchChange={ this.handleOnChange }
+              // filterText={ this.state.filterText }
+              showNoResults={false}
+              soze="huge"
+              
+            />
+          </div>
+          <CardsList 
+            cards={ this.state.currentlyDisplayed }
+          />
+        </Segment>
+      </Container>
     )
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    cards: state.cards
+    cards: state.cards,
   }
 }
 

@@ -1,36 +1,21 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import FilterableCardsList from './FilterableCardsList';
-import logo from './logo.svg';
-import './App.css';
-import CardShow from './CardShow';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import SignupForm from '../components/SignupForm';
 import LoginForm from '../components/LoginForm';
+import LandingPage from '../components/LandingPage';
+import CardsPage from '../components/CardsPage';
+import './App.css'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={ logo } className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Netrunner Decks</h1>
-        </header>
-      <Router>
-        <div>
-          <NavBar />  
-          <Switch>
-            <Route exact path="/cards" component={ FilterableCardsList } />
-            <Route exact path="/cards/favorites" component={ FilterableCardsList } />
-            <Route exact path="/cards/:code" component={ CardShow } />
-            <Route exact path="/signup" component={ SignupForm } />
-            <Route exact path="/login" component={ LoginForm } />
-          </Switch>
-        </div>
-      </Router>
-      </div>
-    );
-  }
-}
+const App = () =>
+  <div>
+    <NavBar />
+    <Switch>
+      <Route exact path="/" component={ LandingPage } />
+      <Route path="/cards" component={ CardsPage } />
+      <Route path="/signup" component={ SignupForm } />
+      <Route path="/login" component={ LoginForm } />
+    </Switch>
+  </div>
 
 export default App;
