@@ -29,12 +29,6 @@ class NavBar extends React.Component {
               >Logout
             </NavLink>
           </li>
-          <li className="navBarLink">
-            <NavLink
-              exact to="/signup"
-              >Sign Up
-            </NavLink>
-          </li>
           <li>
             <NavLink
               exact to="/cards"
