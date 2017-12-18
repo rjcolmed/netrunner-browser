@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { createUser } from '../actions/users_actions'
 import TextInput from './TextInput';
+import { Redirect } from 'react-router';
 
 class SignupForm extends React.Component {
   constructor() {
@@ -14,7 +15,8 @@ class SignupForm extends React.Component {
         email: '',
         password: '',
         password_confirmation: ''
-      }
+      },
+      redirect: false
     }
   }
 
@@ -29,10 +31,20 @@ class SignupForm extends React.Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.createUser(this.state.user);
+    this.props.createUser(this.state.user)
+      .then(() => this.setState({ 
+        ...this.state.user,
+        redirect: true 
+      })
+    );
   }
 
   render() {
+    const { redirect } = this.state
+ 
+    if (redirect) {
+      return <Redirect to='/cards' />
+    }
     
     return (
       <form onSubmit={ this.handleOnSubmit }>
