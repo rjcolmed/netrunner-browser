@@ -6,7 +6,7 @@ const NavBar = props => {
     <ul className="navBar">
       <li className="navBarLink">
         <NavLink
-          exact to="/cards"
+          exact to="/"
           >Home
         </NavLink>
       </li>
@@ -20,6 +20,12 @@ const NavBar = props => {
         <NavLink
           exact to="/signup"
           >Sign Up
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          exact to="/cards"
+          >Cards
         </NavLink>
       </li>
       <li>
