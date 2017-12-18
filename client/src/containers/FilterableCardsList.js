@@ -4,6 +4,7 @@ import * as actions from '../actions/cards_actions.js';
 import { bindActionCreators } from 'redux';
 import SearchBar from '../components/filters/SearchBar';
 import CardsList from '../components/CardsList';
+import { Search, Segment } from 'semantic-ui-react';
 
 class FilterableCardsList extends React.Component {
   constructor() {
@@ -39,14 +40,23 @@ class FilterableCardsList extends React.Component {
     return (
       <div>
         <h1>Filterable Cards List</h1>
-        <SearchBar 
-          filterText={ this.state.filterText }
-          handleOnChange={ this.handleOnChange }
-        />
-        <button onClick={this.handleOnClick}>Get Cards From NetrunnerDB</button>
+        <Segment>
+        <Segment>
+          {/* <SearchBar 
+            filterText={ this.state.filterText }
+            handleOnChange={ this.handleOnChange }
+          /> */}
+          <Search
+            onSearchChange={ this.handleOnChange }
+            filterText={ this.state.filterText }
+            showNoResults={false}
+          />
+        </Segment>
         <CardsList 
           cards={ this.state.currentlyDisplayed }
         />
+        </Segment>
+        <button onClick={this.handleOnClick}>Get Cards From NetrunnerDB</button>
       </div>
     )
   }
