@@ -26,7 +26,7 @@ class NavBar extends React.Component {
     const { redirect } = this.state
 
     if (redirect) {
-      return <Redirect to='/login' />
+      return <Redirect to='/' />
     }
 
     if (this.props.logged_in) {
