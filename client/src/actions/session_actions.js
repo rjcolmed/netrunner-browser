@@ -17,3 +17,10 @@ export const logInUser = (credentials) => {
     .catch(error => console.log(error));
   }
 }
+
+export const logOutUser = () => {
+  sessionStorage.removeItem('jwt');
+  return {
+    type: types.LOG_OUT
+  }
+}
