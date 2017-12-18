@@ -3,16 +3,31 @@ import {connect} from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/session_actions';
+import { Redirect } from 'react-router';
 
 class NavBar extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      redirect: false
+    }
+  }
 
   handleOnClick = (event) => {
     event.preventDefault();
 
-    this.props.actions.logOutUser();
+    this.props.actions.logOutUser()
+    this.setState({ redirect: true });
   }
 
   render() {
+    const { redirect } = this.state
+
+    if (redirect) {
+      return <Redirect to='/login' />
+    }
+
     if (this.props.logged_in) {
       return (
         <ul className="navBar">
