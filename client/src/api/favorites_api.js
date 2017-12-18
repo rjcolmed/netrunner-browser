@@ -14,13 +14,14 @@ class FavoritesApi {
       method: 'post',
       headers: new Headers({
         'Content-Type': 'application/json',
-        'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`
+        'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`,
+        'Accept': 'application/json'
       }),
       body: JSON.stringify(card)
     });
 
     return fetch(request)
-      .then(response => response.json())
+      .then(response => response)
       .catch(err => console.log(err))
   }
 
