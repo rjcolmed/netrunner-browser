@@ -31,7 +31,7 @@ class NavBar extends React.Component {
 
     if (this.props.logged_in) {
       return (
-        <Menu stackable>
+        <Menu stackable pointing secondary>
           <Menu.Item>
             <NavLink
               exact to="/"
