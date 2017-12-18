@@ -62,7 +62,7 @@ class LoginForm extends React.Component {
             handleOnChange={this.handleOnChange}
             value={ this.state.credentials.password }
           />
-          <Button fluid>Submit</Button>
+          <Button fluid>Log In</Button>
           {/* <button type='submit'>Submit</button> */}
         {/* </form> */}
         </Form>
