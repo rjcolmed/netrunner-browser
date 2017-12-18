@@ -15,7 +15,8 @@ class CardShow extends React.Component {
 
   handleOnClick = event => {
     event.preventDefault();
-    this.props.actions.addToFavorites(this.props.card);
+    this.props.actions.addToFavorites(this.props.card)
+      .then(() => this.setState({ redirect: true }));
   }
 
   removeFromFavorites = event => {
