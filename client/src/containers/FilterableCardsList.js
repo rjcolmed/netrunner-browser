@@ -31,11 +31,6 @@ class FilterableCardsList extends React.Component {
     });
   }
 
-  handleOnClick = (event) => {
-    event.preventDefault();
-    this.props.actions.fetchAllFromNetrunnerDb();
-  }
-
   render() {
     return (
       <Container>
@@ -58,7 +53,6 @@ class FilterableCardsList extends React.Component {
             cards={ this.state.currentlyDisplayed }
           />
         </Segment>
-        <button onClick={this.handleOnClick}>Get Cards From NetrunnerDB</button>
       </Container>
     )
   }
