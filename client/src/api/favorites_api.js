@@ -25,6 +25,24 @@ class FavoritesApi {
       .catch(err => console.log(err))
   }
 
+  static removeFavorite(card) {
+    const request = new Request(`/cards/${card.id}`, {
+      method: 'delete',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'AUTHORIZATION': `Bearer ${sessionStorage.jwt}`,
+        'Accept': 'application/json'
+      }),
+      body: JSON.stringify(card)
+    });
+
+    return fetch(request)
+      .then(response => response)
+      .catch(err => console.log(err))
+  }
+
+
+
   static fetchFavorites() {
     const headers = this.requestHeaders();
 
