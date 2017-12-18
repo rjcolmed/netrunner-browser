@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/session_actions';
 import { Redirect } from 'react-router';
+import { Menu } from 'semantic-ui-react';
 
 class NavBar extends React.Component {
   constructor() {
@@ -30,56 +31,56 @@ class NavBar extends React.Component {
 
     if (this.props.logged_in) {
       return (
-        <ul className="navBar">
-          <li className="navBarLink">
+        <Menu stackable>
+          <Menu.Item>
             <NavLink
               exact to="/"
               >Home
             </NavLink>
-          </li>
-          <li className="navBarLink">
+          </Menu.Item>
+          <Menu.Item>
             <NavLink
               exact to="/logout"
               onClick={ this.handleOnClick }
               >Logout
             </NavLink>
-          </li>
-          <li>
+            </Menu.Item>
+          <Menu.Item>
             <NavLink
               exact to="/cards"
               >Cards
             </NavLink>
-          </li>
-          <li>
+            </Menu.Item>
+          <Menu.Item>
             <NavLink
               exact to="/cards/favorites"
               >Favorites
             </NavLink>
-          </li>
-         </ul>
+            </Menu.Item>
+         </Menu>
         );
     } else {
       return (
-        <ul className="navBar">
-          <li className="navBarLink">
+        <Menu>
+          <Menu.Item>
             <NavLink
               exact to="/"
               >Home
             </NavLink>
-          </li>
-          <li className="navBarLink">
+            </Menu.Item>
+          <Menu.Item>
             <NavLink
               exact to="/login"
               >Login
             </NavLink>
-          </li>
-          <li className="navBarLink">
+            </Menu.Item>
+          <Menu.Item>
             <NavLink
               exact to="/signup"
               >Sign Up
             </NavLink>
-          </li>
-         </ul>
+          </Menu.Item>
+        </Menu>
         );
     }
   }
