@@ -17,3 +17,5 @@ export const GET_FAVORITES = 'GET_FAVORITES';
 export const SET_FAVORITES = 'SET_FAVORITES';
 
 export const LOG_OUT = 'LOG_OUT';
+
+export const CREATE_USER_SUCCESS = 'CREATE_USER_SUCCESS';
