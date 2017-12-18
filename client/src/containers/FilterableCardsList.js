@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/cards_actions.js';
-import * as favoritesActions from '../actions/favorites_actions'
 import { bindActionCreators } from 'redux';
 import SearchBar from '../components/filters/SearchBar';
 import CardsList from '../components/CardsList';
@@ -17,11 +16,7 @@ class FilterableCardsList extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.match.url === '/cards/favorites') {
-      this.props.favoritesActions.getFavorites();
-    } else {
-      this.props.actions.getAllCards();
-    }
+    this.props.actions.getAllCards();
   }
 
   handleOnChange = (event) => {
@@ -60,14 +55,12 @@ class FilterableCardsList extends React.Component {
 const mapStateToProps = (state) => {
   return {
     cards: state.cards,
-    favorites: state.favorites
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(actions, dispatch),
-    favoritesActions: bindActionCreators(favoritesActions, dispatch)
+    actions: bindActionCreators(actions, dispatch)
   }
 }
 
