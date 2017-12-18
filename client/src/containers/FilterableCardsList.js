@@ -4,7 +4,7 @@ import * as actions from '../actions/cards_actions.js';
 import { bindActionCreators } from 'redux';
 // import SearchBar from '../components/filters/SearchBar';
 import CardsList from '../components/CardsList';
-import { Search, Segment } from 'semantic-ui-react';
+import { Search, Segment, Container, Header } from 'semantic-ui-react';
 
 class FilterableCardsList extends React.Component {
   constructor() {
@@ -38,26 +38,28 @@ class FilterableCardsList extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Filterable Cards List</h1>
-        <Segment>
-        <Segment>
-          {/* <SearchBar 
-            filterText={ this.state.filterText }
-            handleOnChange={ this.handleOnChange }
-          /> */}
-          <Search
-            onSearchChange={ this.handleOnChange }
-            // filterText={ this.state.filterText }
-            showNoResults={false }
+      <Container>
+        <Segment className="filterable-cards-list">
+        <Header size="huge" textAlign="center">Browse Cards</Header>
+          <div>
+            {/* <SearchBar 
+              filterText={ this.state.filterText }
+              handleOnChange={ this.handleOnChange }
+            /> */}
+            <Search
+              onSearchChange={ this.handleOnChange }
+              // filterText={ this.state.filterText }
+              showNoResults={false}
+              soze="huge"
+              
+            />
+          </div>
+          <CardsList 
+            cards={ this.state.currentlyDisplayed }
           />
         </Segment>
-        <CardsList 
-          cards={ this.state.currentlyDisplayed }
-        />
-        </Segment>
         <button onClick={this.handleOnClick}>Get Cards From NetrunnerDB</button>
-      </div>
+      </Container>
     )
   }
 }
