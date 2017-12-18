@@ -29,4 +29,9 @@ div .ui.card {
   margin-top: 20px;
 }
 
+.ui.segments {
+  margin:150px auto;
+  width: 50%;
+}
+
 
