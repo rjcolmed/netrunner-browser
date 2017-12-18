@@ -12,6 +12,4 @@ const CardsListItem = (props) =>
     </List.Header>
   </List.Item>
   
-  
-
 export default CardsListItem;
