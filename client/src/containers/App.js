@@ -5,6 +5,7 @@ import SignupForm from '../components/SignupForm';
 import LoginForm from '../components/LoginForm';
 import LandingPage from '../components/LandingPage';
 import CardsPage from '../components/CardsPage';
+import './App.css'
 
 const App = () =>
   <div>
