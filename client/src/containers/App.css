@@ -8,7 +8,7 @@ img.ui.image {
 }
 
 .ui.segment.filterable-cards-list {
-  margin: auto;
+  margin: 100px auto;
   width: 500px;
 }
 
@@ -28,4 +28,5 @@ div .ui.card {
 .ui.fluid.button {
   margin-top: 20px;
 }
+
 
