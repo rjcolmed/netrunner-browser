@@ -19,18 +19,8 @@ class FilterableCardsList extends React.Component {
   componentDidMount() {
     if (this.props.match.url === '/cards/favorites') {
       this.props.favoritesActions.getFavorites();
-
-      this.setState({
-        ...this.state,
-        currentlyDisplayed: this.props.favorites
-      });
     } else {
       this.props.actions.getAllCards();
-
-      this.setState({
-        ...this.state,
-        currentlyDisplayed: this.props.favorites
-      });
     }
   }
 
