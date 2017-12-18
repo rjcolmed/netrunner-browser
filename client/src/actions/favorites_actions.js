@@ -9,6 +9,14 @@ export const addToFavorites = card => {
   }
 }
 
+export const removeFromFavorites = card => {
+  return dispatch => {
+    return FavoritesApi.removeFavorite(card)
+      .then(response => response)
+      .catch(err => console.log(err));
+  }
+}
+
 const setFavorites = favorites => {
   return {
     type: types.SET_FAVORITES,
@@ -25,3 +33,5 @@ export const getFavorites = () => {
       .catch(err => console.log(err));
   }
 }
+
+
