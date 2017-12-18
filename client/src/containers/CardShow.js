@@ -45,8 +45,9 @@ class CardShow extends React.Component {
             <Card.Description>{ card.text }</Card.Description>
           </Card.Content>
             <Button 
-              attached="bottom">Remove from Favorites
+              attached="bottom" 
               onClick={ this.removeFromFavorites }
+            >Remove from Favorites
             </Button>
             {/* <button onClick={ this.removeFromFavorites }>Remove from Favorites</button> */}
         </Card>
