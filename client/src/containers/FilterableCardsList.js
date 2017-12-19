@@ -32,33 +32,30 @@ class FilterableCardsList extends React.Component {
   }
 
   render() {
-    console.log(this.props.history.location.state);
-
+    const location = this.props.history.location;
     return (
       
       <Container>
-        { this.props.history.location.state && 
-          <Message positive>
+        { location.state && 
+          <div className="message">
             { 
-              this.props.history.location.state.favoritedCard ? 
-              `Added ${this.props.history.location.state.favoritedCard.title} to your favorites`: 
-              `Removed ${this.props.history.location.state.unfavoritedCard.title} from your favorites.`
+              location.state.favoritedCard ? 
+              <Message positive>
+                Added <strong>{location.state.favoritedCard.title}</strong> to your favorites
+              </Message> : 
+              <Message warning>
+                Removed <strong>{location.state.unfavoritedCard.title}</strong> from your favorites.
+              </Message>
             }
-          </Message>
+          </div>
         }
         <Segment className="filterable-cards-list">
         <Header size="huge" textAlign="center">Browse Cards</Header>
           <div>
-            {/* <SearchBar 
-              filterText={ this.state.filterText }
-              handleOnChange={ this.handleOnChange }
-            /> */}
             <Search
               onSearchChange={ this.handleOnChange }
-              // filterText={ this.state.filterText }
               showNoResults={false}
-              soze="huge"
-              
+              size="huge"
             />
           </div>
           <CardsList 
