@@ -8,19 +8,12 @@ import { Redirect } from 'react-router';
 import { Menu, Icon, Button } from 'semantic-ui-react';
 
 class NavBar extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      redirect: false
-    }
-  }
 
   handleOnClick = event => {
     event.preventDefault();
 
     this.props.actions.logOutUser();
-    this.setState({ redirect: true });
+    this.props.history.push('/');
   }
 
   fetchCardsFromNetrunnerDb =  (event) => {
@@ -30,13 +23,6 @@ class NavBar extends React.Component {
   }
 
   render() {
-    const { redirect } = this.state
-
-    if (redirect) {
-      
-      return <Redirect to='/login' />
-    }
-
     if (this.props.logged_in) {
       return (
         <Menu stackable pointing secondary>
