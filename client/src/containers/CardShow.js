@@ -1,39 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {  bindActionCreators } from 'redux';
-import { Redirect } from 'react-router';
 import * as actions from '../actions/favorites_actions'
 import { Card, Image, Button } from 'semantic-ui-react';
 
 class CardShow extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      redirect: false
-    }
-  }
 
   handleOnClick = event => {
     event.preventDefault();
     this.props.actions.addToFavorites(this.props.card)
-      .then(() => this.setState({ redirect: true }));
+    .then(this.props.history.push('/cards'));
   }
 
   removeFromFavorites = event => {
     event.preventDefault();
 
     this.props.actions.removeFromFavorites(this.props.card)
-      .then(() => this.setState({ redirect: true }));
+    .then(this.props.history.push('/cards'));
   }
 
   render() {
-    const { redirect } = this.state;
-    const { favorites, card } = this.props
-
-    if ( redirect ) {
-      return <Redirect to='/cards/favorites' />
-    }
+    const { favorites, card } = this.props 
 
     if (favorites.find(favorite => favorite.id === this.props.card.id)) {
       return (
@@ -78,7 +65,7 @@ const mapStateToProps = (state, ownProps) => {
 
   if(card) {
     return { 
-      card:card,
+      card: card,
       favorites: state.favorites 
     }
   } else {
