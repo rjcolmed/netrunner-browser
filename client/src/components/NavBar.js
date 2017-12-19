@@ -16,10 +16,10 @@ class NavBar extends React.Component {
     }
   }
 
-  handleOnClick = (event) => {
+  handleOnClick = event => {
     event.preventDefault();
 
-    this.props.actions.logOutUser()
+    this.props.actions.logOutUser();
     this.setState({ redirect: true });
   }
 
@@ -33,7 +33,8 @@ class NavBar extends React.Component {
     const { redirect } = this.state
 
     if (redirect) {
-      return <Redirect to='/' />
+      
+      return <Redirect to='/login' />
     }
 
     if (this.props.logged_in) {
