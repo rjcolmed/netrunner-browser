@@ -20,43 +20,34 @@ class CardShow extends React.Component {
   }
 
   render() {
-    const { favorites, card } = this.props 
+    const { favorites, card, logged_in } = this.props 
 
-    if (favorites.find(favorite => favorite.id === this.props.card.id)) {
-      return (
-        <Card>
-          <Image src={ card.image_url }/>
-          <Card.Content>
-            <Card.Header>{ card.title }</Card.Header>
-            <Card.Meta>{ card.flavor }</Card.Meta>
-            <Card.Description>{ card.text }</Card.Description>
-          </Card.Content>
-            <Button 
-              attached="bottom" 
-              onClick={ this.removeFromFavorites }
-            >Remove from Favorites
-            </Button>
-            {/* <button onClick={ this.removeFromFavorites }>Remove from Favorites</button> */}
-        </Card>
-      );
-    } else {
-      return (
-        <Card>
+    return (
+      <Card>
         <Image src={ card.image_url }/>
         <Card.Content>
           <Card.Header>{ card.title }</Card.Header>
           <Card.Meta>{ card.flavor }</Card.Meta>
           <Card.Description>{ card.text }</Card.Description>
         </Card.Content>
-          <Button
-            attached="bottom"
-            onClick={ this.handleOnClick }
-          >Add to Favorites
-          </Button>
-        {/* <button onClick={ this.handleOnClick }>Add to Favorites</button> */}
+        { logged_in &&
+        <div>
+          { favorites.find(favorite => favorite.id === card.id) ?
+            <Button 
+              attached="bottom" 
+              onClick={ this.removeFromFavorites }
+            >Remove from Favorites
+            </Button> :
+            <Button
+              attached="bottom"
+              onClick={ this.handleOnClick }
+              >Add to Favorites
+            </Button>
+          }
+        </div>
+        }
       </Card>
-      );
-    }
+    );
   }
 }
 
@@ -66,15 +57,16 @@ const mapStateToProps = (state, ownProps) => {
   if(card) {
     return { 
       card: card,
-      favorites: state.favorites 
+      favorites: state.favorites,
+      logged_in: state.session
     }
   } else {
     return { 
       card: {} ,
-      favorites: state.favorites
+      favorites: state.favorites,
+      logged_in: state.session
     }
   }
-
 }
 
 const mapDispatchToProps = (dispatch) => {
