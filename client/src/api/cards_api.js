@@ -17,7 +17,9 @@ class CardsAPI {
   static fetchCards() {
     const request = new Request(`${NETRUNNER_DB_API}/cards`, {
       method: 'get'
-    })
+    });
+
+    return fetch(request)
     .then(response => response.json())
     .catch(err => console.log(err));
   }
