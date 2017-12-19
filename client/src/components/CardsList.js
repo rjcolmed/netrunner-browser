@@ -5,8 +5,8 @@ import { Segment, Container } from 'semantic-ui-react'
 const CardsList = props => {
   function renderList() {
     const cards = props.cards.map((card, index) => 
-    <Segment>
-      <CardsListItem card={ card } key={ index } />
+    <Segment key={ index }>
+      <CardsListItem card={ card } />
     </Segment>
     ) 
     return cards;
