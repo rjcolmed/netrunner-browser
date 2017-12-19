@@ -1,6 +1,6 @@
 import React from 'react';
 import CardsListItem from './CardsListItem';
-import { Segment } from 'semantic-ui-react'
+import { Segment, Container } from 'semantic-ui-react'
 
 const CardsList = props => {
   function renderList() {
@@ -13,9 +13,11 @@ const CardsList = props => {
   }
 
   return (
-    <Segment.Group>
-      { renderList() }
-    </Segment.Group>
+    <Container>
+      <Segment.Group>
+        { renderList() }
+      </Segment.Group>
+    </Container>
   )
 }
  
