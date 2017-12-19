@@ -16,8 +16,7 @@ class SignupForm extends React.Component {
         email: '',
         password: '',
         password_confirmation: ''
-      },
-      redirect: false
+      }
     }
   }
 
@@ -33,19 +32,10 @@ class SignupForm extends React.Component {
   handleOnSubmit = event => {
     event.preventDefault();
     this.props.createUser(this.state.user)
-      .then(() => this.setState({ 
-        ...this.state.user,
-        redirect: true 
-      })
-    );
+    .then(() => this.props.history.push('/cards'));
   }
 
   render() {
-    const { redirect } = this.state
- 
-    if (redirect) {
-      return <Redirect to='/cards' />
-    }
     
     return (
       <Container>
