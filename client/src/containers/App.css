@@ -8,7 +8,7 @@ img.ui.image {
 }
 
 .ui.segment.filterable-cards-list {
-  margin: 100px auto;
+  margin: 50px auto;
   width: 500px;
 }
 
@@ -34,4 +34,9 @@ div .ui.card {
   width: 75%;
 }
 
+.message {
+  margin: auto;
+  width: 500px;
+  text-align: center;
+}
 
