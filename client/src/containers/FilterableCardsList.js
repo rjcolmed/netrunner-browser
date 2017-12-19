@@ -33,8 +33,18 @@ class FilterableCardsList extends React.Component {
 
   render() {
     console.log(this.props.history.location.state);
+
     return (
+      
       <Container>
+          { this.props.history.location.state && 
+          <div>
+            { this.props.history.location.state.favoritedCard ? 
+              `Added ${this.props.history.location.state.favoritedCard.title} to your favorites`: 
+              `Removed ${this.props.history.location.state.unfavoritedCard.title} from your favorites.`
+            }
+          </div>
+        }
         <Segment className="filterable-cards-list">
         <Header size="huge" textAlign="center">Browse Cards</Header>
           <div>
