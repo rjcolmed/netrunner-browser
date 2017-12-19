@@ -7,6 +7,13 @@ import * as cardActions from '../actions/cards_actions.js';
 import { Menu, Icon, Button } from 'semantic-ui-react';
 
 class NavBar extends React.Component {
+  state = {
+    activeItem: 'home'
+  }
+
+  handleItemClick = (event, { name }) => this.setState({
+    activeItem: name
+  })
 
   handleOnClick = event => {
     event.preventDefault();
@@ -22,66 +29,35 @@ class NavBar extends React.Component {
   }
 
   render() {
-    if (this.props.logged_in) {
-      return (
-        <Menu stackable pointing secondary>
-          <Menu.Item>
-            <NavLink
-              exact to="/"
-              >Home
-            </NavLink>
-          </Menu.Item>
-          <Menu.Item>
-            <NavLink
-              exact to="/logout"
-              onClick={ this.handleOnClick }
-              >Logout
-            </NavLink>
-            </Menu.Item>
-          <Menu.Item>
-            <NavLink
-              exact to="/cards"
-              >Cards
-            </NavLink>
-            </Menu.Item>
-          <Menu.Item>
-            <NavLink
-              exact to="/cards/favorites"
-              >Favorites
-            </NavLink>
-          </Menu.Item>
-          <Menu.Item>
-            <Button icon
-              onClick={ this.fetchCardsFromNetrunnerDb }
-              ><Icon name="cloud download" />
-            </Button>
-          </Menu.Item>
-         </Menu>
-        );
-    } else {
-      return (
-        <Menu>
-          <Menu.Item>
-            <NavLink
-              exact to="/"
-              >Home
-            </NavLink>
-            </Menu.Item>
-          <Menu.Item>
-            <NavLink
-              exact to="/login"
-              >Login
-            </NavLink>
-            </Menu.Item>
-          <Menu.Item>
-            <NavLink
-              exact to="/signup"
-              >Sign Up
-            </NavLink>
-          </Menu.Item>
+
+    const { activeItem } = this.state;
+
+    const { logged_in } = this.props;
+
+    return (
+      <Menu stackable pointing secondary>
+        <Menu.Item><NavLink exact to="/">Home</NavLink></Menu.Item>
+        { logged_in &&
+        <Menu.Item><NavLink
+            exact to="/logout"
+            onClick={ this.handleOnClick }
+            >Logout</NavLink>
+        </Menu.Item>
+        }
+        <Menu.Item><NavLink exact to="/cards">Cards</NavLink></Menu.Item>
+        { logged_in &&
+        <Menu.Item><NavLink exact to="/cards/favorites">Favorites</NavLink></Menu.Item>
+        }
+        { logged_in &&
+        <Menu.Item>
+          <Button icon
+            onClick={ this.fetchCardsFromNetrunnerDb }
+            ><Icon name="cloud download" />
+          </Button>
+        </Menu.Item>
+        }
         </Menu>
-        );
-    }
+      );
   }
 }
 
