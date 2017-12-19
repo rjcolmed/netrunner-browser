@@ -4,7 +4,7 @@ import * as actions from '../actions/cards_actions.js';
 import { bindActionCreators } from 'redux';
 // import SearchBar from '../components/filters/SearchBar';
 import CardsList from '../components/CardsList';
-import { Search, Segment, Container, Header } from 'semantic-ui-react';
+import { Search, Segment, Container, Header, Message } from 'semantic-ui-react';
 
 class FilterableCardsList extends React.Component {
   constructor() {
@@ -37,13 +37,14 @@ class FilterableCardsList extends React.Component {
     return (
       
       <Container>
-          { this.props.history.location.state && 
-          <div>
-            { this.props.history.location.state.favoritedCard ? 
+        { this.props.history.location.state && 
+          <Message positive>
+            { 
+              this.props.history.location.state.favoritedCard ? 
               `Added ${this.props.history.location.state.favoritedCard.title} to your favorites`: 
               `Removed ${this.props.history.location.state.unfavoritedCard.title} from your favorites.`
             }
-          </div>
+          </Message>
         }
         <Segment className="filterable-cards-list">
         <Header size="huge" textAlign="center">Browse Cards</Header>
