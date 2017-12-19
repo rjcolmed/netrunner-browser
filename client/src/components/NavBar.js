@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/session_actions';
 import * as cardActions from '../actions/cards_actions.js';
@@ -36,17 +36,21 @@ class NavBar extends React.Component {
 
     return (
       <Menu stackable pointing secondary>
-        <Menu.Item><NavLink exact to="/">Home</NavLink></Menu.Item>
+        <Menu.Item as={Link} to="/" name="home" active={activeItem === "home"} onClick={this.handleItemClick}>
+          Home
+        </Menu.Item>
         { logged_in &&
-        <Menu.Item><NavLink
-            exact to="/logout"
-            onClick={ this.handleOnClick }
-            >Logout</NavLink>
+        <Menu.Item as={Link} to="/logout" onClick={ this.handleOnClick }>
+          Logout
         </Menu.Item>
         }
-        <Menu.Item><NavLink exact to="/cards">Cards</NavLink></Menu.Item>
+        <Menu.Item as={Link} to="/cards" name="cards" active={activeItem === "cards"} onClick={this.handleItemClick}>
+          Cards
+        </Menu.Item>
         { logged_in &&
-        <Menu.Item><NavLink exact to="/cards/favorites">Favorites</NavLink></Menu.Item>
+        <Menu.Item as={Link} to="/cards/favorites" name="favorites" active={activeItem === "favorites"} onClick={this.handleItemClick}>
+          Favorites
+        </Menu.Item>
         }
         { logged_in &&
         <Menu.Item>
