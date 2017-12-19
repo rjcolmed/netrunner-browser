@@ -1,4 +1,5 @@
-import * as types from './action_types'
+import * as types from './action_types';
+import UsersAPI from '../api/users_api';
 
 export const addUser = (user) => {
   return {
@@ -13,24 +14,36 @@ const createUserSuccess = () => {
   }
 }
 
-export const createUser = (user) => {
+export const createUser = user => {
   return dispatch => {
-    dispatch({ type: types.CREATING_USER });
-    return fetch('/users', {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({ user })
-    })
+    return UsersAPI.create(user)
     .then(response => {
       sessionStorage.setItem('jwt', response.jwt);
       dispatch(createUserSuccess());
     })
-    .catch(err => console.log(err));
+    .catch(error => console.log(error));
   }
 }
+
+// export const createUser = (user) => {
+//   return dispatch => {
+//     dispatch({ type: types.CREATING_USER });
+//     return fetch('/users', {
+//       method: 'post',
+//       headers: {
+//         'Content-Type': 'application/json'
+//         // 'Accept': 'application/json'
+//       },
+//       body: JSON.stringify({ user })
+//     })
+//     .then(response => {
+//       console.log(response);
+//       sessionStorage.setItem('jwt', response.jwt);
+//       dispatch(createUserSuccess());
+//     })
+//     .catch(err => console.log(err));
+//   }
+// }
 
 // export const loginUser = (user) => {
 //   return dispatch => {
