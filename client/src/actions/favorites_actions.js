@@ -11,6 +11,7 @@ export const addToFavorites = card => {
 
 export const removeFromFavorites = card => {
   return dispatch => {
+    dispatch({ type: types.REMOVING_FROM_FAVORITES });
     return FavoritesApi.removeFavorite(card)
       .then(response => response)
       .catch(err => console.log(err));
