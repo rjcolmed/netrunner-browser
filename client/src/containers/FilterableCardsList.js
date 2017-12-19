@@ -32,6 +32,7 @@ class FilterableCardsList extends React.Component {
   }
 
   render() {
+    console.log(this.props.history.location.state);
     return (
       <Container>
         <Segment className="filterable-cards-list">
