@@ -5,9 +5,7 @@ import { Provider } from 'react-redux';
 import App from './containers/App';
 import store from './store.js';
 import registerServiceWorker from './registerServiceWorker';
-import createBrowserHistory from 'history/createBrowserHistory';
-
-const history = createBrowserHistory();
+import history from './history';
 
 
 ReactDOM.render(
