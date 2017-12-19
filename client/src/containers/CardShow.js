@@ -9,14 +9,14 @@ class CardShow extends React.Component {
   handleOnClick = event => {
     event.preventDefault();
     this.props.actions.addToFavorites(this.props.card)
-    .then(this.props.history.push('/cards'));
+    .then(this.props.history.push('/cards', { some: this.props.card }));
   }
 
   removeFromFavorites = event => {
     event.preventDefault();
 
     this.props.actions.removeFromFavorites(this.props.card)
-    .then(this.props.history.push('/cards'));
+    .then(this.props.history.push('/cards', { some: this.props.card }));
   }
 
   render() {
