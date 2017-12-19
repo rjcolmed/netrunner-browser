@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 
-class SessionApi {
+class SessionAPI {
   static login(credentials) {
     const request = new Request('/login', {
       method: 'post',
@@ -16,4 +16,4 @@ class SessionApi {
   }
 }
 
-export default SessionApi;
+export default SessionAPI;

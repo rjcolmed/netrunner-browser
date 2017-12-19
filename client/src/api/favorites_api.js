@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 
-class FavoritesApi {
+class FavoritesAPI {
 
   static requestHeaders() {
     return { 
@@ -57,4 +57,4 @@ class FavoritesApi {
   }
 }
 
-export default FavoritesApi;
+export default FavoritesAPI;

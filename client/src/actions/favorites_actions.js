@@ -1,9 +1,9 @@
 import * as types from './action_types';
-import FavoritesApi from '../api/favorites_api';
+import FavoritesAPI from '../api/favorites_api';
 
 export const addToFavorites = card => {
   return dispatch => {
-    return FavoritesApi.favorite(card)
+    return FavoritesAPI.favorite(card)
       .then(response => response)
       .catch(err => console.log(err));
   }
@@ -12,7 +12,7 @@ export const addToFavorites = card => {
 export const removeFromFavorites = card => {
   return dispatch => {
     dispatch({ type: types.REMOVING_FROM_FAVORITES });
-    return FavoritesApi.removeFavorite(card)
+    return FavoritesAPI.removeFavorite(card)
       .then(response => response)
       .catch(err => console.log(err));
   }
@@ -27,7 +27,7 @@ const setFavorites = favorites => {
 
 export const getFavorites = () => {
   return dispatch => {
-    return FavoritesApi.fetchFavorites()
+    return FavoritesAPI.fetchFavorites()
       .then(favorites =>  {
         dispatch(setFavorites(favorites));
       })

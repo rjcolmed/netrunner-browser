@@ -1,5 +1,5 @@
 import * as types from './action_types';  
-import SessionApi from '../api/session_api';
+import SessionAPI from '../api/session_api';
 
 export const loginSuccess = () => {
   return { 
@@ -9,7 +9,7 @@ export const loginSuccess = () => {
 
 export const logInUser = (credentials) => {
   return dispatch => {
-    return SessionApi.login(credentials)
+    return SessionAPI.login(credentials)
     .then(response => {
       sessionStorage.setItem('jwt', response.jwt);
       dispatch(loginSuccess());
