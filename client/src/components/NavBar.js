@@ -31,7 +31,6 @@ class NavBar extends React.Component {
   render() {
 
     const { activeItem } = this.state;
-
     const { logged_in } = this.props;
 
     return (
