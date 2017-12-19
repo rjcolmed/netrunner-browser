@@ -1,14 +1,17 @@
 import fetch from 'isomorphic-fetch';
 import * as types from './action_types'
+import CardsAPI from '../api/cards_api';
 
-const NETRUNNER_DB_API = "https://netrunnerdb.com/api/2.0/public";
+
 
 export const getAllCards = () => {
   return dispatch => {
     dispatch({ type: types.LOADING_CARDS })
-    return fetch('/cards')
-      .then(response => response.json())
-      .then(cards => dispatch({ type: types.GET_ALL_CARDS, cards }))
+    return CardsAPI.getCards()
+      .then(cards => dispatch({ 
+        type: types.GET_ALL_CARDS, 
+        cards 
+      }))
       .catch(err => console.log(err))
   }
 }
@@ -16,18 +19,12 @@ export const getAllCards = () => {
 export const fetchAllFromNetrunnerDb = () => {
   return dispatch => {
     dispatch({ type: types.FETCHING_ALL_CARDS })
-    return fetch(`${NETRUNNER_DB_API}/cards`)
-              .then(response => response.json())
-              .then(cards => {
-                return fetch('/cards', {
-                  method: 'post',
-                  headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                  },
-                  body: JSON.stringify({ cards: cards.data })
-                }).catch(err => console.log(err));
-              });
+    return CardsAPI.fetchCards()
+      .then(cards => { 
+        dispatch({ type: types.ADDING_CARDS_TO_API });
+        CardsAPI.sendCardsToAPI(cards);
+      })
+      .catch(err => console.log(err));
   }
 }
 
