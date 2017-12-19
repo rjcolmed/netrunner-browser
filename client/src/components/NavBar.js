@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/session_actions';
 import * as cardActions from '../actions/cards_actions.js';
-import { Redirect } from 'react-router';
 import { Menu, Icon, Button } from 'semantic-ui-react';
 
 class NavBar extends React.Component {

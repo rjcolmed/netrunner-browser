@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { createUser } from '../actions/users_actions'
 import TextInput from './TextInput';
-import { Redirect } from 'react-router';
 import {  Form, Button, Container, Header } from 'semantic-ui-react';
 
 class SignupForm extends React.Component {
