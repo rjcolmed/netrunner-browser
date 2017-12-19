@@ -1,4 +1,3 @@
-import fetch from 'isomorphic-fetch';
 import * as types from './action_types'
 import CardsAPI from '../api/cards_api';
 
