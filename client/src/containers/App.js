@@ -7,9 +7,9 @@ import LandingPage from '../components/LandingPage';
 import CardsPage from '../components/CardsPage';
 import './App.css'
 
-const App = () =>
+const App = (props) =>
   <div>
-    <NavBar />
+    <NavBar history={ props.history } />
     <Switch>
       <Route exact path="/" component={ LandingPage } />
       <Route path="/cards" component={ CardsPage } />
