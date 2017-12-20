@@ -40,3 +40,7 @@ div .ui.card {
   text-align: center;
 }
 
+div.ui.segments {
+  width: 300px;
+}
+
