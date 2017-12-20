@@ -8,6 +8,8 @@ export default function sessionReducer(state = !!sessionStorage.jwt, action) {
       return !!sessionStorage.jwt
     case types.CREATE_USER_SUCCESS:
       return !!sessionStorage.jwt
+    case types.CREATE_USER_FAILURE:
+      return !!sessionStorage.jwt
     default:
       return state;
   }
