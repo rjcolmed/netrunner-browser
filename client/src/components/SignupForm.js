@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { createUser } from '../actions/users_actions'
 import TextInput from './TextInput';
-import {  Form, Button, Container, Header } from 'semantic-ui-react';
+import {  Form, Button, Container, Header, Message } from 'semantic-ui-react';
 
 class SignupForm extends React.Component {
   constructor() {
@@ -15,7 +15,8 @@ class SignupForm extends React.Component {
         email: '',
         password: '',
         password_confirmation: ''
-      }
+      },
+      passwordsMatch: true
     }
   }
 
@@ -25,6 +26,14 @@ class SignupForm extends React.Component {
         ...this.state.user,
         [event.target.name]: event.target.value
       }
+    });
+  }
+
+  handleOnKeyUp = () => {
+
+    this.setState({
+      ...this.state.user,
+      passwordsMatch: this.state.user.password === this.state.user.password_confirmation
     });
   }
 
@@ -38,6 +47,12 @@ class SignupForm extends React.Component {
     
     return (
       <Container>
+        <div className="message">
+        { 
+          this.state.passwordsMatch ? '' :
+         <Message negative><strong>Your passwords don't match!</strong></Message>
+        }
+        </div>
         <Form onSubmit={ this.handleOnSubmit }>
           <Header size="huge" textAlign="center">Sign Up</Header>
           <TextInput 
@@ -57,12 +72,14 @@ class SignupForm extends React.Component {
             placeholder='password' 
             handleOnChange={this.handleOnChange}
             value={ this.state.user.password }
+            handleOnKeyUp={this.handleOnKeyUp}
           />
           <TextInput 
             name='password_confirmation' 
             placeholder='password confirmation' 
             handleOnChange={ this.handleOnChange }
             value={ this.state.user.password_confirmation }
+            handleOnKeyUp={this.handleOnKeyUp}
           />
           <Button fluid>Sign Up</Button>
         </Form>
