@@ -14,12 +14,23 @@ const createUserSuccess = () => {
   }
 }
 
+const createUserFailure = () => {
+  return {
+    type: types.CREATE_USER_FAILURE
+  }
+}
+
 export const createUser = user => {
   return dispatch => {
     return UsersAPI.create(user)
     .then(response => {
-      sessionStorage.setItem('jwt', response.jwt);
-      dispatch(createUserSuccess());
+      if (response.message) {
+        dispatch(createUserFailure());
+        history.pushState('/signup');
+      } else {
+        sessionStorage.setItem('jwt', response.jwt);
+        dispatch(createUserSuccess());
+      }
     })
     .catch(error => console.log(error));
   }
