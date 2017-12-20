@@ -26,7 +26,6 @@ export const createUser = user => {
     .then(response => {
       if (response.message) {
         dispatch(createUserFailure());
-        history.pushState('/signup');
       } else {
         sessionStorage.setItem('jwt', response.jwt);
         dispatch(createUserSuccess());
