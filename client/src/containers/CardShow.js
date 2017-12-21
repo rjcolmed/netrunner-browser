@@ -7,16 +7,21 @@ import { Card, Image, Button } from 'semantic-ui-react';
 class CardShow extends React.Component {
 
   handleOnClick = event => {
+    const { actions, card, history } = this.props
+
     event.preventDefault();
-    this.props.actions.addToFavorites(this.props.card)
-    .then(this.props.history.push('/cards', { favoritedCard: this.props.card }));
+
+    actions.addToFavorites(card)
+      .then(history.push('/cards', { favoritedCard: card }));
   }
 
   removeFromFavorites = event => {
+    const { actions, card, history } = this.props
+
     event.preventDefault();
 
-    this.props.actions.removeFromFavorites(this.props.card)
-    .then(this.props.history.push('/cards', { unfavoritedCard: this.props.card }));
+    actions.removeFromFavorites(card)
+    .then(history.push('/cards', { unfavoritedCard: card }));
   }
 
   render() {
