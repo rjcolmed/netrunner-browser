@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {  bindActionCreators } from 'redux';
 import * as actions from '../actions/favorites_actions'
-import { Card, Image, Button } from 'semantic-ui-react';
+import Card from '../components/Card';
 
 class CardShow extends React.Component {
 
@@ -10,7 +10,6 @@ class CardShow extends React.Component {
     const { actions, card, history } = this.props
 
     event.preventDefault();
-
     actions.addToFavorites(card)
       .then(history.push('/cards', { favoritedCard: card }));
   }
@@ -19,45 +18,29 @@ class CardShow extends React.Component {
     const { actions, card, history } = this.props
 
     event.preventDefault();
-
     actions.removeFromFavorites(card)
     .then(history.push('/cards', { unfavoritedCard: card }));
   }
 
   render() {
-    const { card, logged_in, inFavorites } = this.props
+    const { inFavorites, logged_in, card } = this.props;
 
     return (
-      <Card>
-        <Image src={ card.image_url }/>
-        <Card.Content>
-          <Card.Header>{ card.title }</Card.Header>
-          <Card.Meta>{ card.flavor }</Card.Meta>
-          <Card.Description>{ card.text }</Card.Description>
-        </Card.Content>
-        { logged_in &&
-        <div>
-          { inFavorites ?
-            <Button 
-              attached="bottom" 
-              onClick={ this.removeFromFavorites }
-            >Remove from Favorites
-            </Button> :
-            <Button
-              attached="bottom"
-              onClick={ this.addToFavorites }
-              >Add to Favorites
-            </Button>
-          }
-        </div>
-        }
-      </Card>
-    );
+      <Card 
+        inFavorites={ inFavorites } 
+        logged_in={ logged_in }
+        addToFavorites={ this.addToFavorites }
+        removeFromFavorites={ this.removeFromFavorites }
+        card={ card }
+      />
+    ) 
+    
   }
+
 }
 
-const mapStateToProps = (state, ownProps) => {
-  const card = state.cards.find(card => card.code === ownProps.match.params.code);
+const mapStateToProps = (state, { match }) => {
+  const card = state.cards.find(card => card.code === match.params.code);
   const inFavorites = state.favorites.find(favorite => favorite.id === card.id)
 
   if(card) {
@@ -81,4 +64,6 @@ const mapDispatchToProps = (dispatch) => {
   }  
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CardShow);
+export default connect(mapStateToProps, mapDispatchToProps)(CardShow);  
+
+    
