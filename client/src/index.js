@@ -12,7 +12,6 @@ ReactDOM.render(
   <Provider store={ store }>
     <Router history={ history }>
       <Route path="/:filter?" component={ App }/>
-      {/* <App/> */}
     </Router>
   </Provider>
 , document.getElementById('root'));
