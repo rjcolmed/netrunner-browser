@@ -2,18 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/cards_actions.js';
 import { bindActionCreators } from 'redux';
-// import SearchBar from '../components/filters/SearchBar';
 import CardsList from '../components/CardsList';
 import { Search, Segment, Container, Header, Message } from 'semantic-ui-react';
 
 class FilterableCardsList extends React.Component {
-  constructor() {
-    super();
 
-    this.state = {
-      filterText: '',
-      currentlyDisplayed: []
-    }
+  state = {
+    filterText: '',
+    currentlyDisplayed: []
   }
 
   componentDidMount() {
@@ -33,8 +29,8 @@ class FilterableCardsList extends React.Component {
 
   render() {
     const location = this.props.history.location;
+
     return (
-      
       <Container>
         { location.state && 
           <div className="message">
