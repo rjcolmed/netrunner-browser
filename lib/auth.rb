@@ -10,7 +10,6 @@ class Auth
         auth_secret,
         ALGORITHM
       )
-
     end
 
     def self.decode(token)
