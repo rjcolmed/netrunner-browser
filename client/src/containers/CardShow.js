@@ -6,7 +6,7 @@ import { Card, Image, Button } from 'semantic-ui-react';
 
 class CardShow extends React.Component {
 
-  handleOnClick = event => {
+  addToFavorites = event => {
     const { actions, card, history } = this.props
 
     event.preventDefault();
@@ -25,7 +25,7 @@ class CardShow extends React.Component {
   }
 
   render() {
-    const { favorites, card, logged_in } = this.props 
+    const { card, logged_in, inFavorites } = this.props
 
     return (
       <Card>
@@ -37,7 +37,7 @@ class CardShow extends React.Component {
         </Card.Content>
         { logged_in &&
         <div>
-          { favorites.find(favorite => favorite.id === card.id) ?
+          { inFavorites ?
             <Button 
               attached="bottom" 
               onClick={ this.removeFromFavorites }
@@ -45,7 +45,7 @@ class CardShow extends React.Component {
             </Button> :
             <Button
               attached="bottom"
-              onClick={ this.handleOnClick }
+              onClick={ this.addToFavorites }
               >Add to Favorites
             </Button>
           }
@@ -58,11 +58,12 @@ class CardShow extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   const card = state.cards.find(card => card.code === ownProps.match.params.code);
+  const inFavorites = state.favorites.find(favorite => favorite.id === card.id)
 
   if(card) {
     return { 
       card: card,
-      favorites: state.favorites,
+      inFavorites: inFavorites,
       logged_in: state.session
     }
   } else {
