@@ -7,5 +7,4 @@ const AddFavoriteButton = ({ addToFavorites }) => (
   </Button>
 )
 
-
 export default AddFavoriteButton;
