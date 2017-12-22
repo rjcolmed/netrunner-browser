@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import MenuBar from '../components/MenuBar';
-import SignupForm from '../components/SignupForm';
-import LoginForm from '../components/LoginForm';
+import MenuBar from '../components/menu/MenuBar';
+import SignupForm from '../components/forms/SignupForm';
+import LoginForm from '../components/forms/LoginForm';
 import LandingPage from '../components/LandingPage';
-import CardsPage from '../components/CardsPage';
+import CardsPage from '../components/cards/CardsPage';
 import './App.css'
 
 const App = (props) =>

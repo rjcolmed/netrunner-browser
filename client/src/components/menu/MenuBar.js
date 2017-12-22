@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from '../actions/session_actions';
-import * as cardActions from '../actions/cards_actions.js';
+import * as actions from '../../actions/session_actions';
+import * as cardActions from '../../actions/cards_actions.js';
 import Menu from './Menu';
 
 class MenuBar extends React.Component {

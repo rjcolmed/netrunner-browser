@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as sessionActions from '../actions/session_actions';
+import * as sessionActions from '../../actions/session_actions';
 import TextInput from './TextInput';
 import {  Form, Button, Container, Header } from 'semantic-ui-react';
 import { Redirect } from 'react-router';

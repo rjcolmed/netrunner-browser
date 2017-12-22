@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import FilterableCardsList from '../containers/FilterableCardsList';
-import CardShow from '../containers/CardShow';
-import FavoritesList from '../containers/FavoritesList';
+import FilterableCardsList from '../../containers/FilterableCardsList';
+import CardShow from '../../containers/CardShow';
+import FavoritesList from '../../containers/FavoritesList';
 
 const CardsPage = () =>
   <Switch>

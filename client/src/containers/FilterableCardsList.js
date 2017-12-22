@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/cards_actions.js';
 import { bindActionCreators } from 'redux';
-import CardsList from '../components/CardsList';
+import CardsList from '../components/cards/CardsList';
 import { Search, Segment, Container, Header, Message } from 'semantic-ui-react';
 
 class FilterableCardsList extends React.Component {

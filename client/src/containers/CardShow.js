@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {  bindActionCreators } from 'redux';
 import * as actions from '../actions/favorites_actions'
-import Card from '../components/Card';
+import Card from '../components/cards/Card';
 
 class CardShow extends React.Component {
 

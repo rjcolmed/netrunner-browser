@@ -3,7 +3,7 @@ import LoginLink from './LoginLink';
 import LogoutLink from './LogoutLink';
 import SignupLink from './SignupLink';
 import FavoriteLink from './FavoriteLink';
-import RefreshCardsButton from './RefreshCardsButton';
+import RefreshCardsButton from '../cards/RefreshCardsButton';
 import MenuTemplate from './MenuTemplate';
 
 class Menu extends React.Component {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { createUser } from '../actions/users_actions'
+import { createUser } from '../../actions/users_actions'
 import TextInput from './TextInput';
 import {  Form, Button, Container, Header, Message } from 'semantic-ui-react';
 
