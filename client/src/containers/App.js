@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import NavBar from '../components/NavBar';
+import MenuBar from '../components/MenuBar';
 import SignupForm from '../components/SignupForm';
 import LoginForm from '../components/LoginForm';
 import LandingPage from '../components/LandingPage';
@@ -9,7 +9,7 @@ import './App.css'
 
 const App = (props) =>
   <div>
-    <NavBar history={ props.history } />
+    <MenuBar history={ props.history } />
     <Switch>
       <Route exact path="/" component={ LandingPage } />
       <Route path="/cards" component={ CardsPage } />
