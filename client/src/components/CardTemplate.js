@@ -12,18 +12,16 @@ class CardTemplate extends React.Component {
     const { card, button } = this.props;
 
     return (
-      <div>
-        <Card>
-          <Image src={ card.image_url } />
-          <Card.Content>
-            <Card.Header>{ card.title }</Card.Header>
-            <Card.Meta>{ card.flavor }</Card.Meta>
-            <Card.Description>{ card.text }</Card.Description>
-          </Card.Content>
+      <Card>
+        <Image src={ card.image_url } />
+        <Card.Content>
+          <Card.Header>{ card.title }</Card.Header>
+          <Card.Meta>{ card.flavor }</Card.Meta>
+          <Card.Description>{ card.text }</Card.Description>
+        </Card.Content>
 
-          <span>{ button }</span>
-        </Card>
-      </div>
+        <span>{ button }</span>
+      </Card>
     )
   }
 }
