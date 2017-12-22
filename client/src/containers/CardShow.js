@@ -33,10 +33,8 @@ class CardShow extends React.Component {
         removeFromFavorites={ this.removeFromFavorites }
         card={ card }
       />
-    ) 
-    
+    )
   }
-
 }
 
 const mapStateToProps = (state, { match }) => {
