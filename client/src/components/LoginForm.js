@@ -49,7 +49,6 @@ class LoginForm extends React.Component {
       <Container>
         <Form onSubmit={ this.handleOnSubmit }>
         <Header size="huge" textAlign="center">Log In</Header>
-        {/* <form onSubmit={ this.handleOnSubmit }> */}
           <TextInput 
             name='username' 
             placeholder='username' 
@@ -63,8 +62,6 @@ class LoginForm extends React.Component {
             value={ this.state.credentials.password }
           />
           <Button fluid>Log In</Button>
-          {/* <button type='submit'>Submit</button> */}
-        {/* </form> */}
         </Form>
       </Container>
     )
