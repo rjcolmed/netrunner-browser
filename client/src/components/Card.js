@@ -8,8 +8,8 @@ class Card extends React.Component {
     const { addToFavorites, removeFromFavorites, inFavorites, logged_in, card } = this.props;
 
     const button = inFavorites ? 
-    <RemoveFavoriteButton removeFromFavorites={ removeFromFavorites } /> :
-    <AddFavoriteButton addToFavorites={ addToFavorites } />
+    logged_in && <RemoveFavoriteButton removeFromFavorites={ removeFromFavorites } /> :
+    logged_in && <AddFavoriteButton addToFavorites={ addToFavorites } />
 
     return <CardTemplate button={ button } card={ card } />
   }
