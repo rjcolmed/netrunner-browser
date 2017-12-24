@@ -48,7 +48,7 @@ class LoginForm extends React.Component {
     return (
       <Container>
         <Form onSubmit={ this.handleOnSubmit }>
-        <Header size="huge" textAlign="center">Log In</Header>
+        <Header size="huge" textAlign="center" inverted>Log In</Header>
           <TextInput 
             name='username' 
             placeholder='username' 

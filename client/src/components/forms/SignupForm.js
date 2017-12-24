@@ -54,7 +54,7 @@ class SignupForm extends React.Component {
         }
         </div>
         <Form onSubmit={ this.handleOnSubmit }>
-          <Header size="huge" textAlign="center">Sign Up</Header>
+          <Header size="huge" textAlign="center" inverted>Sign Up</Header>
           <TextInput 
             name='username' 
             placeholder='username' 
