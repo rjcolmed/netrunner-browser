@@ -9,7 +9,7 @@ class MenuTemplate extends React.Component {
     const { activeItem, handleItemClick, authActions } = this.props;
 
     return (
-      <Menu stackable pointing secondary>
+      <Menu stackable pointing secondary inverted>
         <Menu.Item 
           as= { Link } 
           to="/" name="home" 
