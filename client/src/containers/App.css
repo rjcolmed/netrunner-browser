@@ -44,3 +44,7 @@ div.ui.segments {
   width: 300px;
 }
 
+body {
+  background-image: url('../background.jpg');
+  background-size: cover;
+}
