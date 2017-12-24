@@ -48,3 +48,12 @@ body {
   background-image: url('../background.jpg');
   background-size: cover;
 }
+
+.ui.bottom.attached.buttons {
+  margin-top: 100px;
+}
+
+.ui.huge.inverted.header {
+  font-size: 4em;
+  margin-top: 175px;
+}
